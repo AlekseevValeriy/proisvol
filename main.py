@@ -54,3 +54,5 @@ if __name__ == '__main__':
     w = MyWindow()
     w.show()
     sys.exit(app.exec())
+
+# new
