@@ -24,7 +24,7 @@ class MyWindow(QMainWindow):
             qp.end()
 
     def draw_circle(self, qp):
-        color = QColor(255, 255, 0)
+        color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         radius = random.randint(10, min(self.width(), self.height()) // 2)
         x = random.randrange(0, self.width() -radius)
         y = random.randrange(0, self.width() -radius)
