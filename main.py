@@ -1,14 +1,17 @@
 import random
 import sys
 
-from PyQt5 import uic, QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QColor, QPainter
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-class MyWindow(QMainWindow):
+from ui import Ui_MainWindow
+
+
+class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('ui.ui', self)
+        self.setupUi(self)
         self._is_paint = False
         self.button.clicked.connect(self.go)
 
@@ -26,13 +29,10 @@ class MyWindow(QMainWindow):
     def draw_circle(self, qp):
         color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         radius = random.randint(10, min(self.width(), self.height()) // 2)
-        x = random.randrange(0, self.width() -radius)
-        y = random.randrange(0, self.width() -radius)
+        x = random.randrange(0, self.width() - radius)
+        y = random.randrange(0, self.width() - radius)
         qp.setBrush(color)
         qp.drawEllipse(x, y, radius, radius)
-
-
-
 
 
 def exception_hook(exctype, value, traceback):
